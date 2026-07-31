@@ -18,7 +18,7 @@ export default function Home() {
             </h1>
 
             <p style={{ fontSize: '18px', color: 'var(--text-body)', marginBottom: '40px', maxWidth: '520px', lineHeight: '1.6' }}>
-              Lumicore Labs delivers cutting-edge software solutions that transform your business operations, accelerate growth, and create lasting competitive advantages in the digital era.
+              Apxcore digital delivers cutting-edge software solutions that transform your business operations, accelerate growth, and create lasting competitive advantages in the digital era.
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '32px', marginBottom: '48px' }}>
@@ -45,8 +45,8 @@ export default function Home() {
           <div style={{ flex: '1', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '120%', height: '120%', background: 'linear-gradient(135deg, rgba(0,95,170,0.1) 0%, rgba(0,119,204,0.1) 100%)', filter: 'blur(32px)', borderRadius: '50%', zIndex: 0 }}></div>
             {/* Hero Image — replace /images/hero_1.png with your image */}
-            <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: '24px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', position: 'relative', zIndex: 1, background: '#D1D5DB', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#6B7280', fontWeight: '600' }}>Hero Image (Image 1)</span>
+            <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: '24px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+              <img src="/images/cb14388fbf0a9d2210df55b49a503fa243a18b39.jpg" alt="Hero" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <div style={{ position: 'absolute', bottom: '32px', left: '-32px', background: 'white', padding: '16px 24px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)', zIndex: 2 }}>
@@ -96,8 +96,8 @@ export default function Home() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '64px' }}>
           <div style={{ flex: '1', position: 'relative' }}>
             {/* Discover Image — replace placeholder with your image */}
-            <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: '24px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', background: '#D1D5DB', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
-              <span style={{ color: '#6B7280', fontWeight: '600' }}>Discover Image (Image 2)</span>
+            <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: '24px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+              <img src="/images/cedfbf1523498b6b9cf3a65af7e5b61f0ea8394e.jpg" alt="Discover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{ position: 'absolute', bottom: '-24px', right: '-24px', background: 'var(--primary)', color: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)', zIndex: 2 }}>
               <div style={{ fontSize: '32px', fontWeight: '800', marginBottom: '8px' }}>8+</div>
@@ -109,7 +109,7 @@ export default function Home() {
             <div style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '600', letterSpacing: '1.4px', textTransform: 'uppercase', marginBottom: '16px' }}>Discover Our Company</div>
             <h2 style={{ fontSize: '36px', marginBottom: '24px' }}>Bringing New IT Business Solutions And Ideas</h2>
             <p style={{ fontSize: '16px', color: 'var(--text-body)', marginBottom: '40px', lineHeight: '1.6' }}>
-              At Lumicore Labs, we combine deep technical expertise with creative problem-solving to deliver software solutions that truly make a difference.
+              At Apxcore digital, we combine deep technical expertise with creative problem-solving to deliver software solutions that truly make a difference.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '48px' }}>
               {[
@@ -158,7 +158,7 @@ export default function Home() {
             <div style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '600', letterSpacing: '1.4px', textTransform: 'uppercase', marginBottom: '12px' }}>Technology solutions</div>
             <h2 style={{ fontSize: '36px', marginBottom: '16px' }}>We Provide IT & Business Solutions</h2>
             <p style={{ fontSize: '16px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-              From strategy to execution, Lumicore Labs delivers comprehensive technology solutions.
+              From strategy to execution, Apxcore digital delivers comprehensive technology solutions.
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '24px' }}>
@@ -191,18 +191,18 @@ export default function Home() {
             <div style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '600', letterSpacing: '1.4px', textTransform: 'uppercase', marginBottom: '12px' }}>Featured Services</div>
             <h2 style={{ fontSize: '36px', marginBottom: '16px' }}>Our Latest Case Studies</h2>
             <p style={{ fontSize: '16px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-              Explore how Lumicore Labs has helped businesses across industries achieve their digital transformation goals.
+              Explore how Apxcore digital has helped businesses across industries achieve their digital transformation goals.
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '48px' }}>
             {[
-              { label: 'Case Study Image 3', tag: 'Cloud', title: 'Enterprise Cloud Migration for FinTech Leader' },
-              { label: 'Case Study Image 4', tag: 'AI & ML', title: 'AI-Powered Analytics Platform for Healthcare' },
-              { label: 'Case Study Image 5', tag: 'Mobile', title: 'Cross-Platform Mobile App with 2M+ Users' },
+              { img: '/images/192b4757d41ea10387e87f5bc6ee469db879fe1a.jpg', tag: 'Cloud', title: 'Enterprise Cloud Migration for FinTech Leader' },
+              { img: '/images/006b739ae39b2b74a5c22be4c3abd55244fbbacc.jpg', tag: 'AI & ML', title: 'AI-Powered Analytics Platform for Healthcare' },
+              { img: '/images/fae2cb8e8e86945bfd9afb88e1b2eb6ddbaf0af6.jpg', tag: 'Mobile', title: 'Cross-Platform Mobile App with 2M+ Users' },
             ].map((study, idx) => (
               <div key={idx} style={{ borderRadius: '16px', border: '1px solid #F3F4F6', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ width: '100%', height: '240px', background: '#D1D5DB', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '14px', color: '#6B7280', fontWeight: '600' }}>{study.label}</span>
+                <div style={{ width: '100%', height: '240px', overflow: 'hidden' }}>
+                  <img src={study.img} alt={study.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                   <div style={{ display: 'inline-flex', padding: '4px 12px', background: 'var(--primary-light)', color: 'var(--primary)', fontSize: '12px', fontWeight: '600', borderRadius: '9999px', alignSelf: 'flex-start', marginBottom: '16px' }}>
@@ -234,8 +234,8 @@ export default function Home() {
           <div style={{ display: 'flex', gap: '32px' }}>
             {/* Main Blog Post */}
             <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ width: '100%', height: '360px', background: '#D1D5DB', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '8px', borderRadius: '16px', marginBottom: '24px' }}>
-                <span style={{ fontSize: '16px', color: '#6B7280', fontWeight: '600' }}>Main Blog Image (Image 6)</span>
+              <div style={{ width: '100%', height: '360px', borderRadius: '16px', marginBottom: '24px', overflow: 'hidden' }}>
+                <img src="/images/a2496713bb6b8c418c9989b5fd5e359c6de3b4a2.jpg" alt="Main Blog" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ display: 'inline-flex', padding: '4px 12px', background: 'var(--primary-light)', color: 'var(--primary)', fontSize: '12px', fontWeight: '600', borderRadius: '9999px', alignSelf: 'flex-start', marginBottom: '16px' }}>Technology</div>
               <h3 style={{ fontSize: '24px', marginBottom: '16px' }}>5 Steps to Founding a Tax-Exempt Nonprofit Corporation</h3>
@@ -251,13 +251,13 @@ export default function Home() {
             {/* Sidebar Blog Posts */}
             <div style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {[
-                { label: 'Blog Image 7', tag: 'Technology', date: 'Nov 12, 2024', title: 'The Growing Technology Infidele Excellent Profit', desc: 'Discover how emerging technologies are reshaping business profitability.' },
-                { label: 'Blog Image 8', tag: 'Marketing', date: 'Oct 28, 2024', title: 'Boost Your Business With Our Digital Agency', desc: 'Strategic insights on leveraging digital agency partnerships to accelerate your business growth.' },
-                { label: 'Blog Image 9', tag: 'Branding', date: 'Sep 15, 2024', title: 'Visual Identity System is More Memorable', desc: 'How a cohesive visual identity system builds brand recognition and drives long-term loyalty.' },
+                { img: '/images/1c1131068c62166e123c22ccd77c17a893c095c3.jpg', tag: 'Technology', date: 'Nov 12, 2024', title: 'The Growing Technology Infidele Excellent Profit', desc: 'Discover how emerging technologies are reshaping business profitability.' },
+                { img: '/images/fa2244edbda8dfcd6492b655187327c8bfa0ddcc.jpg', tag: 'Marketing', date: 'Oct 28, 2024', title: 'Boost Your Business With Our Digital Agency', desc: 'Strategic insights on leveraging digital agency partnerships to accelerate your business growth.' },
+                { img: '/images/7cbefce5ecd2290c5adc1c2b83069e44a9c39527.jpg', tag: 'Branding', date: 'Sep 15, 2024', title: 'Visual Identity System is More Memorable', desc: 'How a cohesive visual identity system builds brand recognition and drives long-term loyalty.' },
               ].map((post, idx) => (
                 <div key={idx} style={{ display: 'flex', gap: '24px', background: 'white', padding: '24px', borderRadius: '16px', border: '1px solid #F3F4F6', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
-                  <div style={{ width: '120px', height: '120px', background: '#D1D5DB', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <span style={{ fontSize: '11px', color: '#6B7280', textAlign: 'center', padding: '4px' }}>{post.label}</span>
+                  <div style={{ width: '120px', height: '120px', borderRadius: '12px', flexShrink: 0, overflow: 'hidden' }}>
+                    <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>

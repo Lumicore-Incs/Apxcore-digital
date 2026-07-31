@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
           <div style={{ width: '32px', height: '32px', background: 'var(--primary-light)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontWeight: 'bold' }}>L</div>
-          <span style={{ fontSize: '20px', fontWeight: '800', color: 'var(--primary)' }}>Lumicore Labs</span>
+          <span style={{ fontSize: '22px', fontWeight: '800', color: 'var(--primary)', letterSpacing: '-0.5px' }}>Apxcore digital</span>
         </Link>
 
         <div style={{ display: 'flex', gap: '32px', alignItems: 'center', fontSize: '14px', fontWeight: '600', color: '#4B5563' }}>

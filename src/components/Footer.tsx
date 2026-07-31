@@ -22,8 +22,8 @@ export default function Footer() {
           {/* Brand Info */}
           <div style={{ flex: '2', minWidth: '280px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
-              <div style={{ width: '32px', height: '32px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>L</div>
-              <span style={{ fontSize: '20px', fontWeight: '800', color: 'white' }}>Lumicore Labs</span>
+              <div style={{ width: '36px', height: '36px', background: 'transparent', border: '2px solid rgba(255,255,255,0.5)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', fontSize: '11px', letterSpacing: '1px' }}>APX</div>
+              <span style={{ fontSize: '20px', fontWeight: '800', color: 'white' }}>Apxcore digital</span>
             </div>
             <p style={{ color: '#9CA3AF', lineHeight: '1.6', marginBottom: '32px', maxWidth: '320px' }}>
               Building tomorrow's software today with innovative solutions that drive real business results.
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-          <p style={{ fontSize: '14px', color: '#9CA3AF' }}>© 2026 Lumicore Labs. All rights reserved.</p>
+          <p style={{ fontSize: '14px', color: '#9CA3AF' }}>© 2026 Apxcore digital. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '24px' }}>
             <a href="#" style={{ fontSize: '14px', color: '#9CA3AF', textDecoration: 'none' }}>Privacy Policy</a>
             <a href="#" style={{ fontSize: '14px', color: '#9CA3AF', textDecoration: 'none' }}>Terms of Service</a>
