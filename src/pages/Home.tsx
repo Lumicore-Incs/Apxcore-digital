@@ -100,7 +100,7 @@ export default function Home() {
               <img src="/images/cedfbf1523498b6b9cf3a65af7e5b61f0ea8394e.jpg" alt="Discover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{ position: 'absolute', bottom: '-24px', right: '-24px', background: 'var(--primary)', color: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)', zIndex: 2 }}>
-              <div style={{ fontSize: '32px', fontWeight: '800', marginBottom: '8px' }}>8+</div>
+              <div style={{ fontSize: '32px', fontWeight: '800', marginBottom: '8px' }}>2+</div>
               <div style={{ fontSize: '14px', fontWeight: '500', opacity: 0.9 }}>Years of Excellence</div>
             </div>
           </div>
@@ -138,10 +138,10 @@ export default function Home() {
       <section style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '64px 0' }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
           {[
-            { value: '2,518', label: 'Project Delivered' },
+            { value: '58', label: 'Project Delivered' },
             { value: '14+', label: 'Team Experience' },
-            { value: '278', label: 'Happy Clients+' },
-            { value: '3,568', label: 'Revenue Grow' },
+            { value: '58', label: 'Happy Clients+' },
+            { value: '1000', label: 'Revenue Grow' },
           ].map((stat, idx) => (
             <div key={idx}>
               <div style={{ fontSize: '48px', fontWeight: '800', marginBottom: '8px' }}>{stat.value}</div>
