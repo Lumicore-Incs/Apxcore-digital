@@ -74,7 +74,7 @@ export default function Contact() {
                 cardBg: 'linear-gradient(135deg, #ECFEFF 0%, #EFF6FF 100%)',
                 border: 'rgba(0,168,232,0.2)',
                 title: 'Call Us',
-                detail: '+1 (234) 567-890',
+                detail: '+94 767354673',
               },
               {
                 icon: <MapPin size={28} color="#00D4AA" />,
