@@ -67,10 +67,10 @@ export default function About() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
             {[
-              { value: '150+', label: 'Projects Completed', color: '#005FAA', bg: 'linear-gradient(135deg, #EFF6FF 0%, #ECFEFF 100%)', border: 'rgba(0, 95, 170, 0.2)' },
-              { value: '50+',  label: 'Happy Clients',      color: '#14B8A6', bg: 'linear-gradient(135deg, #ECFEFF 0%, #EFF6FF 100%)', border: 'rgba(20, 184, 166, 0.2)' },
-              { value: '15+',  label: 'Tech Experts',       color: '#0891B2', bg: 'linear-gradient(135deg, #F0FDFA 0%, #ECFEFF 100%)', border: 'rgba(8, 145, 178, 0.2)' },
-              { value: '8+',   label: 'Years Experience',   color: '#005FAA', bg: 'linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%)', border: 'rgba(0, 95, 170, 0.2)' },
+              { value: '58+', label: 'Projects Completed', color: '#005FAA', bg: 'linear-gradient(135deg, #EFF6FF 0%, #ECFEFF 100%)', border: 'rgba(0, 95, 170, 0.2)' },
+              { value: '58+',  label: 'Happy Clients',      color: '#14B8A6', bg: 'linear-gradient(135deg, #ECFEFF 0%, #EFF6FF 100%)', border: 'rgba(20, 184, 166, 0.2)' },
+              { value: '14+',  label: 'Tech Experts',       color: '#0891B2', bg: 'linear-gradient(135deg, #F0FDFA 0%, #ECFEFF 100%)', border: 'rgba(8, 145, 178, 0.2)' },
+              { value: '02+',   label: 'Years Experience',   color: '#005FAA', bg: 'linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%)', border: 'rgba(0, 95, 170, 0.2)' },
             ].map((stat, idx) => (
               <div key={idx} style={{ background: stat.bg, border: `2px solid ${stat.border}`, borderRadius: '16px', padding: '34px', textAlign: 'center' }}>
                 <div style={{ fontSize: '48px', fontWeight: '700', color: stat.color, lineHeight: '1', marginBottom: '8px' }}>{stat.value}</div>

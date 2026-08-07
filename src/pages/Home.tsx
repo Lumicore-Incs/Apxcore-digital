@@ -28,7 +28,7 @@ export default function Home() {
                   <Phone size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Call Us: +1 (888) 123-4567</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Call Us: +94 767354673</div>
                   <div style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>For any question</div>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function Home() {
               </div>
               <div>
                 <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Trusted by</div>
-                <div style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-dark)' }}>278+ Happy Clients</div>
+                <div style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-dark)' }}>50+ Happy Clients</div>
               </div>
             </div>
           </div>

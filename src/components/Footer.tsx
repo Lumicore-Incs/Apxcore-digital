@@ -62,15 +62,15 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                 <MapPin size={18} color="var(--primary)" style={{ marginTop: '2px' }} />
-                <span style={{ color: '#9CA3AF', fontSize: '14px', lineHeight: '1.5' }}>171 King St, Melbourne VIC 3000,<br />Australia</span>
+                <span style={{ color: '#9CA3AF', fontSize: '14px', lineHeight: '1.5' }}>201, Wakwella Road, Galle,<br />Sri Lanka</span>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Phone size={18} color="var(--primary)" />
-                <span style={{ color: '#9CA3AF', fontSize: '14px' }}>+1 (888) 123-4567</span>
+                <span style={{ color: '#9CA3AF', fontSize: '14px' }}>+94 767354673</span>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Mail size={18} color="var(--primary)" />
-                <span style={{ color: '#9CA3AF', fontSize: '14px' }}>info@lumicorelabs.com</span>
+                <span style={{ color: '#9CA3AF', fontSize: '14px' }}>info@Apxcore.com</span>
               </li>
             </ul>
           </div>
