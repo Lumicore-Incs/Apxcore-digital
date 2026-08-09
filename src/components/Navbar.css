@@ -1,0 +1,416 @@
+/* Navbar.css - Complete Styling for DigiWave Navbar */
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==================== NAVBAR ==================== */
+
+.navbar {
+  position: sticky;
+  top: 16px;
+  z-index: 50;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.navbar-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  height: 70px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.645);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.24);
+  backdrop-filter: blur(18px);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    height: 60px;
+    padding: 0 12px;
+  }
+}
+
+.navbar.mobile-open .navbar-container {
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================== LOGO ==================== */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-box {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 10px 15px -3px rgba(96, 165, 250, 0.3);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .logo-box {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+.navbar-logo:hover .logo-box {
+  box-shadow: 0 10px 20px -5px rgba(96, 165, 250, 0.5);
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(to right, #60a5fa, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 640px) {
+  .logo-text {
+    display: none;
+  }
+}
+
+/* ==================== DESKTOP NAVIGATION CENTER ==================== */
+
+.navbar-center {
+  display: none;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+  margin: 0 32px;
+}
+
+@media (min-width: 1024px) {
+  .navbar-center {
+    display: flex;
+  }
+}
+
+/* ==================== DESKTOP NAVIGATION LINKS ==================== */
+
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #d1d5db;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  font-weight: 700;
+}
+
+.nav-link:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ==================== SOCIAL ICONS DESKTOP ==================== */
+
+.social-links-desktop {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  font-size: 20px;
+}
+
+.social-link:hover {
+  color: #ffffff;
+  background: rgba(96, 165, 250, 0.18);
+  transform: translateY(-2px);
+}
+
+.social-link:active {
+  transform: scale(0.95);
+}
+
+.social-link:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ==================== MOBILE MENU BUTTON ==================== */
+
+.mobile-menu-button {
+  display: flex;
+  padding: 8px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+.mobile-menu-button:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-button:active {
+  transform: scale(0.95);
+}
+
+.mobile-menu-button:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ==================== MOBILE NAVIGATION ==================== */
+
+.mobile-nav {
+  display: none;
+  background: linear-gradient(to bottom, #1e293b, #0f172a);
+  border-top: 1px solid rgba(51, 65, 85, 0.5);
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+.mobile-nav.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 16px;
+  right: 16px;
+  border-radius: 0 0 16px 16px;
+  margin-top: -1px;
+  z-index: 40;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 16px;
+  flex: 1;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #d1d5db;
+  border-left: 2px solid transparent;
+}
+
+.mobile-nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.mobile-nav-link.active {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border-left: 2px solid #60a5fa;
+  font-weight: 700;
+}
+
+.mobile-nav-link:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ==================== MOBILE CTA BUTTON ==================== */
+
+.cta-button-mobile {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 0 16px 16px 16px;
+  padding: 12px 16px;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button-mobile:active {
+  transform: scale(0.98);
+}
+
+.cta-button-mobile:hover {
+  box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+.cta-button-mobile:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ==================== MOBILE SOCIAL ICONS - BOTTOM ==================== */
+
+.mobile-social-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-top: 1px solid rgba(51, 65, 85, 0.5);
+  background-color: rgba(15, 23, 42, 0.8);
+}
+
+@media (max-width: 768px) {
+  .mobile-social-container {
+    gap: 12px;
+    padding: 12px;
+  }
+}
+
+.mobile-social-icon {
+  padding: 10px;
+  border-radius: 9999px;
+  color: #9ca3af;
+  background-color: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .mobile-social-icon {
+    padding: 8px;
+    font-size: 18px;
+  }
+}
+
+.mobile-social-icon:hover {
+  color: #60a5fa;
+  background-color: rgba(96, 165, 250, 0.2);
+  transform: scale(1.1);
+}
+
+.mobile-social-icon:active {
+  transform: scale(0.95);
+}
+
+.mobile-social-icon:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  font-family: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== Z-INDEX HIERARCHY ==================== */
+/* z-40: Mobile nav (slides below navbar) */
+/* z-50: Navbar (always on top) */
