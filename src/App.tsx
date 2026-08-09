@@ -6,11 +6,13 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import './index.css';
+import PlaneTrails from './components/PlaneTrails';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <PlaneTrails />
         <Navbar />
         <main>
           <Routes>
