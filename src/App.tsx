@@ -7,10 +7,12 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import './index.css';
 import PlaneTrails from './components/PlaneTrails';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="app">
         <PlaneTrails />
         <Navbar />
