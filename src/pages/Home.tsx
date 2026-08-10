@@ -109,20 +109,21 @@ export default function Home() {
 Lumicore Labs delivers cutting-edge software solutions that transform your business operations, accelerate growth, and create lasting competitive advantages in the digital era.            </p>
 
             <div className="hero-actions" data-aos="fade-up" data-aos-delay="150">
-              <button className="hero-button">Start a project</button>
+              <div className="hero-primary-actions">
+                <button className="hero-button">Start a project</button>
+                <div className="hero-contact">
+                  <div className="hero-contact__icon">
+                    <Phone size={18} />
+                  </div>
+                  <div className="hero-contact__text">
+                    <span>Call us anytime</span>
+                    <strong>+94 767 354 673</strong>
+                  </div>
+                </div>
+              </div>
               <button className="hero-button--ghost">
                 <Play size={18} /> Watch how we work
               </button>
-            </div>
-
-            <div className="hero-contact">
-              <div className="hero-contact__icon">
-                <Phone size={18} />
-              </div>
-              <div className="hero-contact__text">
-                <span>Call us anytime</span>
-                <strong>+94 767 354 673</strong>
-              </div>
             </div>
           </div>
 
