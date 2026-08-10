@@ -31,8 +31,8 @@ export default function Navbar() {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <div className="logo-box">D</div>
-          <span className="logo-text">Apxcore</span>
+          <div className="logo-box">A</div>
+          <span className="logo-text">Apxcore digital</span>
         </Link>
 
         {/* Desktop Navigation Center */}
