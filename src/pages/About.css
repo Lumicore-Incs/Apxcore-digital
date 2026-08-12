@@ -1,0 +1,40 @@
+.hero-section { padding-top: 128px; padding-bottom: 80px; }
+.hero-title { font-size: 60px; font-weight: 700; color: #005FAA; margin-bottom: 24px; line-height: 1; }
+.hero-subtitle { font-size: 20px; color: #4B5563; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+.section-title { font-size: 48px; font-weight: 700; color: #111827; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 64px; }
+.mission-vision-container { display: flex; gap: 64px; align-items: center; }
+.mission-img-wrapper { flex: 0 0 340px; height: 340px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+
+.timeline-row { display: flex; align-items: center; position: relative; }
+.timeline-card-left { flex: 1; padding-right: 48px; }
+.timeline-card-right { flex: 1; padding-left: 48px; }
+.timeline-empty { flex: 1; }
+.timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; transform: translateX(-50%); background: linear-gradient(180deg, #005FAA 0%, #14B8A6 50%, #005FAA 100%); border-radius: 2px; opacity: 0.35; }
+
+@media (max-width: 1024px) {
+  .stats-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .mission-vision-container { flex-direction: column; text-align: center; gap: 32px; }
+  .mission-img-wrapper { flex: auto; width: 100%; max-width: 500px; }
+  
+  .hero-title { font-size: 48px; }
+  .section-title { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hero-section { padding-top: 100px; padding-bottom: 60px; }
+  .hero-title { font-size: 36px; }
+  .section-title { font-size: 32px; }
+  .stats-grid, .team-grid, .values-grid { grid-template-columns: 1fr; }
+  
+  .timeline-row { flex-direction: column; align-items: flex-start; }
+  .timeline-card-left, .timeline-card-right { flex: auto; padding: 0 0 0 40px; width: 100%; box-sizing: border-box; }
+  .timeline-empty { display: none; }
+  .timeline-line { left: 12px; }
+  .milestone-dot { left: 12px !important; transform: translateX(-50%) !important; }
+  .milestone-card { text-align: left !important; }
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import './Contact.css';
 
 const faqs = [
   {
@@ -68,7 +69,7 @@ export default function Contact() {
   return (
     <>
       {/* Hero Section */}
-      <section style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', paddingTop: '128px', paddingBottom: '80px', position: 'relative', overflow: 'hidden' }}>
+      <section className="hero-section" style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(103% 380% at 0.14% 0.51%, rgba(0,95,170,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <FadeUp>
@@ -76,10 +77,10 @@ export default function Contact() {
               <span>Home</span><span>/</span>
               <span style={{ fontWeight: '500', color: '#111827' }}>Contact Us</span>
             </nav>
-            <h1 style={{ fontSize: '60px', fontWeight: '700', color: '#005FAA', marginBottom: '24px', lineHeight: '1.05' }}>
+            <h1 className="hero-title">
               Let's Build Something Amazing
             </h1>
-            <p style={{ fontSize: '20px', color: '#4B5563', maxWidth: '768px', margin: '0 auto', lineHeight: '1.6' }}>
+            <p className="hero-subtitle">
               Transform your ideas into reality. Our team is ready to discuss your project and provide tailored solutions.
             </p>
           </FadeUp>
@@ -89,7 +90,7 @@ export default function Contact() {
       {/* Contact Info Cards */}
       <section style={{ background: '#FFFFFF', padding: '48px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+          <div className="contact-info-grid">
             {[
               {
                 icon: <Mail size={28} color="#005FAA" />,
@@ -137,9 +138,9 @@ export default function Contact() {
             <div style={{ background: 'white', borderRadius: '24px', border: '1px solid #E5E7EB', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', overflow: 'hidden' }}>
 
               {/* Form Header with steps */}
-              <div style={{ background: 'linear-gradient(90deg, #005FAA 0%, #00A8E8 100%)', padding: '32px 48px' }}>
+              <div className="form-header" style={{ background: 'linear-gradient(90deg, #005FAA 0%, #00A8E8 100%)' }}>
                 {/* Step indicators */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0', marginBottom: '24px' }}>
+                <div className="form-step-indicators">
                   {[1, 2, 3].map((s, idx) => (
                     <div key={s} style={{ display: 'flex', alignItems: 'center' }}>
                       <div style={{
@@ -155,7 +156,7 @@ export default function Contact() {
                         {s}
                       </div>
                       {idx < 2 && (
-                        <div style={{ width: '180px', height: '4px', background: step > s ? '#FFFFFF' : 'rgba(255,255,255,0.3)', transition: 'background 0.3s ease' }} />
+                        <div className="form-step-line" style={{ background: step > s ? '#FFFFFF' : 'rgba(255,255,255,0.3)' }} />
                       )}
                     </div>
                   ))}
@@ -169,7 +170,7 @@ export default function Contact() {
               </div>
 
               {/* Form Body */}
-              <div style={{ padding: '48px' }}>
+              <div className="form-body">
                 {step === 1 && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     {[
@@ -245,11 +246,11 @@ export default function Contact() {
                       onFocus={e => e.target.style.borderColor = '#005FAA'}
                       onBlur={e => e.target.style.borderColor = '#D1D5DB'}
                     />
-                    <div style={{ display: 'flex', gap: '16px' }}>
-                      <button onClick={() => setStep(1)} style={{ flex: 1, padding: '16px', borderRadius: '9999px', border: '2px solid #D1D5DB', background: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', color: '#4B5563' }}>
+                    <div className="form-buttons">
+                      <button onClick={() => setStep(1)} style={{ padding: '16px', borderRadius: '9999px', border: '2px solid #D1D5DB', background: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', color: '#4B5563' }}>
                         Back
                       </button>
-                      <button onClick={() => project.type && project.budget && project.desc && setStep(3)} style={{ flex: 2, padding: '16px 32px', borderRadius: '9999px', border: 'none', background: '#005FAA', color: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                      <button className="primary-btn" onClick={() => project.type && project.budget && project.desc && setStep(3)} style={{ padding: '16px 32px', borderRadius: '9999px', border: 'none', background: '#005FAA', color: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         Review & Submit <ArrowRight size={18} />
                       </button>
                     </div>
@@ -276,11 +277,11 @@ export default function Contact() {
                         </div>
                       ))}
                     </div>
-                    <div style={{ display: 'flex', gap: '16px' }}>
-                      <button onClick={() => setStep(2)} style={{ flex: 1, padding: '16px', borderRadius: '9999px', border: '2px solid #D1D5DB', background: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', color: '#4B5563' }}>
+                    <div className="form-buttons">
+                      <button onClick={() => setStep(2)} style={{ padding: '16px', borderRadius: '9999px', border: '2px solid #D1D5DB', background: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer', color: '#4B5563' }}>
                         Back
                       </button>
-                      <button onClick={() => { alert("Thank you! We'll be in touch soon."); setStep(1); setForm({ name: '', email: '', phone: '', company: '' }); setProject({ type: '', budget: '', desc: '' }); }} style={{ flex: 2, padding: '16px 32px', borderRadius: '9999px', border: 'none', background: '#005FAA', color: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer' }}>
+                      <button className="primary-btn" onClick={() => { alert("Thank you! We'll be in touch soon."); setStep(1); setForm({ name: '', email: '', phone: '', company: '' }); setProject({ type: '', budget: '', desc: '' }); }} style={{ padding: '16px 32px', borderRadius: '9999px', border: 'none', background: '#005FAA', color: 'white', fontSize: '16px', fontWeight: '600', cursor: 'pointer' }}>
                         Submit Request ✓
                       </button>
                     </div>
@@ -333,7 +334,7 @@ export default function Contact() {
       <section style={{ background: '#F9FAFB', padding: '80px 0' }}>
         <div className="container">
           <FadeLeft>
-            <div style={{ background: 'white', borderRadius: '24px', border: '1px solid #E5E7EB', overflow: 'hidden', position: 'relative', height: '400px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+            <div className="map-container" style={{ background: 'white', borderRadius: '24px', border: '1px solid #E5E7EB', overflow: 'hidden', position: 'relative', height: '400px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
               <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-122.1000%2C37.3700%2C-122.0500%2C37.4000&layer=mapnik&marker=37.3861%2C-122.0839"
                 width="100%" height="100%" style={{ border: 0, display: 'block' }}
@@ -341,7 +342,7 @@ export default function Contact() {
                 title="Office Location"
               />
               {/* Office Hours Card */}
-              <div style={{ position: 'absolute', bottom: '24px', left: '24px', background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)', minWidth: '240px' }}>
+              <div className="office-hours-card">
                 <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#111827', marginBottom: '12px' }}>Office Hours</h4>
                 <p style={{ fontSize: '14px', color: '#4B5563', marginBottom: '4px' }}>Monday - Friday: 9:00 AM - 6:00 PM</p>
                 <p style={{ fontSize: '14px', color: '#4B5563', marginBottom: '16px' }}>Saturday - Sunday: Closed</p>
