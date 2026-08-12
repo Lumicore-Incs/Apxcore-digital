@@ -1,13 +1,25 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Target, Eye, Award, Lightbulb, Shield } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
-const milestones = [
-  { year: '2017', title: 'Company Founded', desc: 'Apxcore digital was established with a vision to revolutionize software development', side: 'left' },
-  { year: '2018', title: 'First Major Client', desc: 'Secured partnership with Fortune 500 company, delivering cloud migration solutions', side: 'right' },
-  { year: '2020', title: 'AI Division Launch', desc: 'Expanded services to include AI and machine learning solutions', side: 'left' },
-  { year: '2022', title: 'Global Expansion', desc: 'Opened offices in 5 countries, serving clients across 3 continents', side: 'right' },
-  { year: '2024', title: 'Industry Recognition', desc: 'Awarded "Best Software Development Company" by Tech Innovation Awards', side: 'left' },
+type Milestone = {
+  year: string;
+  title: string;
+  desc: string;
+  side: 'left' | 'right';
+};
+
+const milestones: Milestone[] = [
   { year: '2025', title: 'Innovation Hub', desc: 'Launched R&D center focusing on next-generation technologies', side: 'right' },
+  { year: '2024', title: 'Industry Recognition', desc: 'Awarded "Best Software Development Company" by Tech Innovation Awards', side: 'left' },
+  { year: '2022', title: 'Global Expansion', desc: 'Opened offices in 5 countries, serving clients across 3 continents', side: 'right' },
+  { year: '2020', title: 'AI Division Launch', desc: 'Expanded services to include AI and machine learning solutions', side: 'left' },
+  { year: '2018', title: 'First Major Client', desc: 'Secured partnership with Fortune 500 company, delivering cloud migration solutions', side: 'right' },
+  { year: '2017', title: 'Company Founded', desc: 'Apxcore digital was established with a vision to revolutionize software development', side: 'left' },
 ];
 
 const team = [
@@ -161,6 +173,27 @@ function MilestoneItem({ m, idx }: { m: typeof milestones[0]; idx: number }) {
 }
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({
+      duration: 900,
+      offset: 120,
+      easing: 'ease-out-cubic',
+      once: true,
+      mirror: false,
+      anchorPlacement: 'top-bottom',
+    });
+
+    // Recalculate AOS positions after any layout-shifting content
+    // (fonts, images, the map data-URI) settles in.
+    const refresh = () => AOS.refresh();
+    window.addEventListener('load', refresh);
+    const t = setTimeout(refresh, 600);
+    return () => {
+      window.removeEventListener('load', refresh);
+      clearTimeout(t);
+    };
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -204,7 +237,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Company Milestones Timeline */}
+      {/* Company Milestones Timeline — 3D cylindrical drum scroll effect */}
       <section style={{ background: '#F9FAFB', padding: '80px 0' }}>
         <div className="container">
           <FadeUp>
@@ -264,7 +297,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Client Locations */}
+      {/* Our Client Locations — interactive expandable markers */}
       <section style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #ECFEFF 100%)', padding: '80px 0' }}>
         <div className="container">
           <FadeUp>
