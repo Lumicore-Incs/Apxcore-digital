@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Target, Eye, Award, Lightbulb, Shield } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import './About.css';
 
 type Milestone = {
   year: string;
@@ -123,12 +124,13 @@ function MilestoneItem({ m, idx }: { m: typeof milestones[0]; idx: number }) {
   return (
     <div
       ref={ref as React.Ref<HTMLDivElement>}
-      style={{ display: 'flex', alignItems: 'center', marginBottom: idx < milestones.length - 1 ? '48px' : 0, position: 'relative' }}
+      className="timeline-row"
+      style={{ marginBottom: idx < milestones.length - 1 ? '48px' : 0 }}
     >
       {m.side === 'left' ? (
         <>
           {/* Card left */}
-          <div style={{ flex: 1, paddingRight: '48px' }}>
+          <div className="timeline-card-left">
             <div
               className={`milestone-card${inView ? ' animate' : ''}`}
               style={{ ...cardStyle, textAlign: 'right', animationDelay: delay }}
@@ -144,19 +146,19 @@ function MilestoneItem({ m, idx }: { m: typeof milestones[0]; idx: number }) {
             style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#005FAA', border: '4px solid #FFFFFF', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.15)', flexShrink: 0, zIndex: 1, position: 'absolute', left: '50%', animationDelay: `calc(${delay} + 0.18s)` }}
           />
           {/* Empty right */}
-          <div style={{ flex: 1, paddingLeft: '48px' }} />
+          <div className="timeline-empty" />
         </>
       ) : (
         <>
           {/* Empty left */}
-          <div style={{ flex: 1, paddingRight: '48px' }} />
+          <div className="timeline-empty" />
           {/* Dot */}
           <div
             className={`milestone-dot${inView ? ' animate' : ''}`}
             style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#14B8A6', border: '4px solid #FFFFFF', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.15)', flexShrink: 0, zIndex: 1, position: 'absolute', left: '50%', animationDelay: `calc(${delay} + 0.18s)` }}
           />
           {/* Card right */}
-          <div style={{ flex: 1, paddingLeft: '48px' }}>
+          <div className="timeline-card-right">
             <div
               className={`milestone-card${inView ? ' animate' : ''}`}
               style={{ ...cardStyle, animationDelay: delay }}
@@ -197,7 +199,7 @@ export default function About() {
   return (
     <>
       {/* Hero Section */}
-      <section style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', paddingTop: '128px', paddingBottom: '80px', position: 'relative', overflow: 'hidden' }}>
+      <section className="hero-section" style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(103% 380% at 0.14% 0.51%, rgba(0, 95, 170, 0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <FadeUp>
@@ -206,10 +208,10 @@ export default function About() {
               <span>/</span>
               <span style={{ fontWeight: '500', color: '#111827' }}>About Us</span>
             </nav>
-            <h1 style={{ fontSize: '60px', fontWeight: '700', color: '#005FAA', marginBottom: '24px', lineHeight: '1' }}>
+            <h1 className="hero-title">
               About Apxcore digital
             </h1>
-            <p style={{ fontSize: '20px', color: '#4B5563', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
+            <p className="hero-subtitle">
               Pioneering the future of software development with innovation, expertise, and dedication
             </p>
           </FadeUp>
@@ -219,7 +221,7 @@ export default function About() {
       {/* Stats Section */}
       <section style={{ background: '#FFFFFF', padding: '64px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
+          <div className="stats-grid">
             {[
               { value: '58+', label: 'Projects Completed', color: '#005FAA', bg: 'linear-gradient(135deg, #EFF6FF 0%, #ECFEFF 100%)', border: 'rgba(0, 95, 170, 0.2)' },
               { value: '58+',  label: 'Happy Clients',      color: '#14B8A6', bg: 'linear-gradient(135deg, #ECFEFF 0%, #EFF6FF 100%)', border: 'rgba(20, 184, 166, 0.2)' },
@@ -250,7 +252,7 @@ export default function About() {
           {/* Timeline */}
           <div style={{ position: 'relative', maxWidth: '900px', margin: '0 auto' }}>
             {/* Vertical line – alternating blue/teal gradient */}
-            <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '4px', transform: 'translateX(-50%)', background: 'linear-gradient(180deg, #005FAA 0%, #14B8A6 50%, #005FAA 100%)', borderRadius: '2px', opacity: 0.35 }} />
+            <div className="timeline-line" />
 
             {milestones.map((m, idx) => (
               <MilestoneItem key={idx} m={m} idx={idx} />
@@ -269,7 +271,7 @@ export default function About() {
               <p style={{ fontSize: '18px', color: '#4B5563', maxWidth: '600px', margin: '0 auto' }}>Talented professionals dedicated to bringing your vision to life</p>
             </div>
           </FadeUp>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
+          <div className="team-grid">
             {team.map((member, idx) => (
               <FadeUp key={idx} delay={idx * 0.1}>
                 <div style={{ background: '#005FAA', borderRadius: '16px', padding: '28px', color: 'white', height: '100%' }}>
@@ -333,7 +335,7 @@ export default function About() {
               <h2 style={{ fontSize: '36px', fontWeight: '700', color: '#111827' }}>What Drives Us</h2>
             </div>
           </FadeUp>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '64px' }}>
+          <div className="values-grid">
             {[
               { icon: <Lightbulb size={28} />, title: 'Innovation', desc: 'We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions that keep our clients ahead of the curve.' },
               { icon: <Shield size={28} />, title: 'Integrity', desc: 'We build trust through transparency, honesty, and ethical practices in every project and relationship we cultivate.' },
@@ -352,7 +354,7 @@ export default function About() {
           </div>
 
           {/* Mission & Vision */}
-          <div style={{ display: 'flex', gap: '64px', alignItems: 'center' }}>
+          <div className="mission-vision-container">
             <FadeLeft>
               <div style={{ flex: '0 0 340px', height: '340px', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)' }}>
                 <img src="/images/7ff81a9acd0149ff739fee5049089c14294b1d49.jpg" alt="Our Mission" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
