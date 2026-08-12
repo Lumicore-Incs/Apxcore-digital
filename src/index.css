@@ -56,3 +56,99 @@ button {
   transform: translateY(-4px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
+
+/* ── Scroll Animations ────────────────────────────── */
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-fade-left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-fade-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anim-fade-right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-fade-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anim-scale-in {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-scale-in.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger helpers – add via inline style: transition-delay */
+.anim-delay-1 { transition-delay: 0.08s; }
+.anim-delay-2 { transition-delay: 0.16s; }
+.anim-delay-3 { transition-delay: 0.24s; }
+.anim-delay-4 { transition-delay: 0.32s; }
+.anim-delay-5 { transition-delay: 0.40s; }
+.anim-delay-6 { transition-delay: 0.48s; }
+
+/* Pulse for map dots */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0, 95, 170, 0.35); }
+  50%       { box-shadow: 0 0 0 8px rgba(0, 95, 170, 0.08); }
+}
+
+/* ── Milestone timeline animations ───────────────── */
+/* Zoom-pop: card scales from 0.65 → 1 with spring overshoot */
+@keyframes zoom-pop {
+  0%   { opacity: 0; transform: scale(0.65);  }
+  55%  { opacity: 1; transform: scale(1.06);  }
+  75%  { transform: scale(0.97);  }
+  100% { opacity: 1; transform: scale(1);     }
+}
+
+/* Bounce-dot: dot pops in with elastic bounce */
+@keyframes bounce-dot {
+  0%   { opacity: 0; transform: translateX(-50%) scale(0);    }
+  60%  { opacity: 1; transform: translateX(-50%) scale(1.5);  }
+  80%  { transform: translateX(-50%) scale(0.8);  }
+  100% { opacity: 1; transform: translateX(-50%) scale(1);    }
+}
+
+/* Line draw-down from top */
+@keyframes line-grow {
+  from { transform: translateX(-50%) scaleY(0); transform-origin: top; }
+  to   { transform: translateX(-50%) scaleY(1); transform-origin: top; }
+}
+
+.milestone-card {
+  opacity: 0;
+}
+.milestone-card.animate {
+  animation: zoom-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.milestone-dot {
+  opacity: 0;
+}
+.milestone-dot.animate {
+  animation: bounce-dot 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
