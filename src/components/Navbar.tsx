@@ -17,10 +17,10 @@ export default function Navbar() {
   ];
 
   const socialLinks = [
-    { icon: FaFacebook, url: '#', label: 'Facebook' },
-    { icon: FaTiktok, url: '#', label: 'TikTok' },
-    { icon: FaYoutube, url: '#', label: 'YouTube' },
-    { icon: FaInstagram, url: '#', label: 'Instagram' },
+    { icon: FaFacebook, url: '#', label: 'Facebook', color: '#1877F2' },
+    { icon: FaTiktok, url: '#', label: 'TikTok', color: '#000000' },
+    { icon: FaYoutube, url: '#', label: 'YouTube', color: '#FF0000' },
+    { icon: FaInstagram, url: '#', label: 'Instagram', color: '#E1306C' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -62,6 +62,7 @@ export default function Navbar() {
                   className="social-link"
                   aria-label={social.label}
                   title={social.label}
+                  style={{ '--brand-color': social.color } as React.CSSProperties}
                 >
                   <Icon />
                 </a>
@@ -76,56 +77,62 @@ export default function Navbar() {
           className="mobile-menu-button"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <span className={`menu-icon-wrap ${isOpen ? 'rotated' : ''}`}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </span>
         </button>
 
-        {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className="mobile-nav open">
-            {/* Mobile Navigation Links */}
-            <div className="mobile-nav-links">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`mobile-nav-link ${isActive(link.path) ? 'active' : ''}`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              {/* Mobile CTA Button */}
+        {/* Mobile Navigation Menu — always mounted so CSS transition can animate open/close */}
+        <div className={`mobile-nav ${isOpen ? 'open' : 'closed'}`}>
+          {/* Mobile Navigation Links */}
+          <div className="mobile-nav-links">
+            {navLinks.map((link, idx) => (
               <Link
-                to="/contact"
+                key={link.path}
+                to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="cta-button-mobile"
+                className={`mobile-nav-link ${isActive(link.path) ? 'active' : ''}`}
+                style={{ transitionDelay: isOpen ? `${idx * 60}ms` : '0ms' }}
               >
-                Get Started
+                {link.label}
               </Link>
-            </div>
+            ))}
 
-            {/* Mobile Social Icons - Bottom */}
-            <div className="mobile-social-container">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mobile-social-icon"
-                    aria-label={social.label}
-                    title={social.label}
-                  >
-                    <Icon />
-                  </a>
-                );
-              })}
-            </div>
+            {/* Mobile CTA Button */}
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="cta-button-mobile"
+              style={{ transitionDelay: isOpen ? `${navLinks.length * 60}ms` : '0ms' }}
+            >
+              Get Started
+            </Link>
           </div>
-        )}
+
+          {/* Mobile Social Icons - Bottom */}
+          <div className="mobile-social-container">
+            {socialLinks.map((social, idx) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mobile-social-icon"
+                  aria-label={social.label}
+                  title={social.label}
+                  style={{
+                    '--brand-color': social.color,
+                    transitionDelay: isOpen ? `${(navLinks.length + 1 + idx) * 60}ms` : '0ms',
+                  } as React.CSSProperties}
+                >
+                  <Icon />
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </nav>
   );

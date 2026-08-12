@@ -106,7 +106,7 @@ export default function Home() {
               Awesome IT  Services <span className="hero-highlight">For Your Business</span>.
             </h1>
             <p>
-Lumicore Labs delivers cutting-edge software solutions that transform your business operations, accelerate growth, and create lasting competitive advantages in the digital era.            </p>
+              Lumicore Labs delivers cutting-edge software solutions that transform your business operations, accelerate growth, and create lasting competitive advantages in the digital era.            </p>
 
             <div className="hero-actions" data-aos="fade-up" data-aos-delay="150">
               <div className="hero-primary-actions">
@@ -157,7 +157,7 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
 
       <section className="section-block">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading" data-aos="fade-up">
             <div className="section-heading__eyebrow">Services we deliver</div>
             <h2>Premium capabilities for ambitious teams</h2>
             <p>Full-service product design and engineering for companies that want modern digital experiences with real business impact.</p>
@@ -170,7 +170,13 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
               { icon: <Zap size={24} />, title: 'Performance', desc: 'Blazing fast interfaces, reliability-first engineering, and thoughtful optimization.' },
               { icon: <Shield size={24} />, title: 'Network Protection', desc: 'Enterprise-grade security, audit readiness, and continuous threat monitoring.' },
             ].map((service, idx) => (
-              <article key={idx} className="service-card">
+              <article
+                key={idx}
+                className="service-card"
+                data-aos="fade-up"
+                data-aos-delay={idx * 100}
+                data-aos-duration="600"
+              >
                 <div className="service-card__icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
@@ -184,20 +190,20 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
       {/* Discover Our Company Section */}
       <section className="section-block">
         <div className="container discovery">
-          <div className="discovery__visual">
+          <div className="discovery__visual" data-aos="fade-right" data-aos-duration="900">
             <div className="discovery__card">
-              <img 
-                src="/images/cedfbf1523498b6b9cf3a65af7e5b61f0ea8394e.jpg" 
-                alt="Discover Our Company" 
+              <img
+                src="/images/cedfbf1523498b6b9cf3a65af7e5b61f0ea8394e.jpg"
+                alt="Discover Our Company"
               />
             </div>
-            <div className="discovery__badge">
+            <div className="discovery__badge" data-aos="zoom-in" data-aos-delay="300">
               <h3>2+</h3>
               <p>Years of Excellence</p>
             </div>
           </div>
 
-          <div className="discovery__details">
+          <div className="discovery__details" data-aos="fade-left" data-aos-duration="900">
             <div style={{ color: '#0d6bff', fontSize: '14px', fontWeight: '600', letterSpacing: '1.4px', textTransform: 'uppercase', marginBottom: '16px' }}>
               Discover Our Company
             </div>
@@ -207,18 +213,23 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
             </p>
             <div>
               {[
-                { 
-                  icon: <User size={20} />, 
-                  title: 'Engaging Group Discussion', 
-                  desc: 'We foster open collaboration and transparent communication throughout every project phase.' 
+                {
+                  icon: <User size={20} />,
+                  title: 'Engaging Group Discussion',
+                  desc: 'We foster open collaboration and transparent communication throughout every project phase.'
                 },
-                { 
-                  icon: <Code size={20} />, 
-                  title: 'Software Engineering', 
-                  desc: 'Our engineers apply industry best practices, clean architecture, and rigorous testing.' 
+                {
+                  icon: <Code size={20} />,
+                  title: 'Software Engineering',
+                  desc: 'Our engineers apply industry best practices, clean architecture, and rigorous testing.'
                 },
               ].map((item, idx) => (
-                <div key={idx} className="discovery-item">
+                <div
+                  key={idx}
+                  className="discovery-item"
+                  data-aos="fade-up"
+                  data-aos-delay={200 + idx * 150}
+                >
                   <div className="discovery-item__icon">
                     {item.icon}
                   </div>
@@ -229,7 +240,7 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
                 </div>
               ))}
             </div>
-            <button className="discovery-button">
+            <button className="discovery-button" data-aos="fade-up" data-aos-delay="500">
               Discover More <ChevronRight size={18} />
             </button>
           </div>
@@ -246,7 +257,13 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
               { value: '58', label: 'Happy Clients+' },
               { value: '1000', label: 'Revenue Grow' },
             ].map((stat, idx) => (
-              <div key={idx} className="stats-card">
+              <div
+                key={idx}
+                className="stats-card"
+                data-aos="zoom-in"
+                data-aos-delay={idx * 120}
+                data-aos-duration="700"
+              >
                 <Counter end={stat.value} duration={1600} />
                 <div className="stats-label">{stat.label}</div>
               </div>
@@ -258,7 +275,7 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
       {/* Case Studies Section */}
       <section className="section-block">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading" data-aos="fade-up">
             <div className="section-heading__eyebrow">Featured services</div>
             <h2>Our latest case studies</h2>
             <p>Explore premium digital transformation projects delivered for growth-driven organizations.</p>
@@ -269,7 +286,13 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
               { img: '/images/006b739ae39b2b74a5c22be4c3abd55244fbbacc.jpg', tag: 'AI & ML', title: 'AI-powered analytics platform for healthcare' },
               { img: '/images/fae2cb8e8e86945bfd9afb88e1b2eb6ddbaf0af6.jpg', tag: 'Mobile', title: 'Cross-platform mobile app with 2M+ users' },
             ].map((study, idx) => (
-              <article key={idx} className="case-card">
+              <article
+                key={idx}
+                className="case-card"
+                data-aos="fade-up"
+                data-aos-delay={idx * 120}
+                data-aos-duration="700"
+              >
                 <img className="case-card__image" src={study.img} alt={study.title} />
                 <div className="case-card__body">
                   <div className="case-card__tag">{study.tag}</div>
@@ -285,12 +308,12 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
       {/* Blog Section */}
       <section className="section-block">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading" data-aos="fade-up">
             <div className="section-heading__eyebrow">Technology insights</div>
             <h2>Latest news & blog</h2>
           </div>
           <div className="blog-grid">
-            <div className="main-blog">
+            <div className="main-blog" data-aos="fade-right" data-aos-duration="800">
               <img className="main-blog__image" src="/images/a2496713bb6b8c418c9989b5fd5e359c6de3b4a2.jpg" alt="Main blog post" />
               <span className="main-blog__tag">Technology</span>
               <h3>5 steps to founding a tax-exempt nonprofit corporation</h3>
@@ -306,7 +329,13 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
                 { img: '/images/fa2244edbda8dfcd6492b655187327c8bfa0ddcc.jpg', tag: 'Marketing', date: 'Oct 28, 2024', title: 'Boost your business with our digital agency', desc: 'Strategic insights on leveraging digital agency partnerships to accelerate your business growth.' },
                 { img: '/images/7cbefce5ecd2290c5adc1c2b83069e44a9c39527.jpg', tag: 'Branding', date: 'Sep 15, 2024', title: 'Visual identity system is more memorable', desc: 'How a cohesive visual identity system builds brand recognition and drives long-term loyalty.' },
               ].map((post, idx) => (
-                <article key={idx} className="blog-teaser">
+                <article
+                  key={idx}
+                  className="blog-teaser"
+                  data-aos="fade-left"
+                  data-aos-delay={idx * 120}
+                  data-aos-duration="700"
+                >
                   <img className="blog-teaser__image" src={post.img} alt={post.title} />
                   <div className="blog-teaser__content">
                     <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '12px' }}>
@@ -318,7 +347,7 @@ Lumicore Labs delivers cutting-edge software solutions that transform your busin
                   </div>
                 </article>
               ))}
-              <div className="blog-sidebar__footer">
+              <div className="blog-sidebar__footer" data-aos="fade-up" data-aos-delay="400">
                 <a href="#">View all posts <ArrowRight size={16} /></a>
               </div>
             </div>

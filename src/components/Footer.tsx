@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, MapPin, Phone, Mail } from 'lucide-react';
+import { useState } from 'react';
 
 const Facebook = ({ size = 24, color = 'currentColor' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -14,13 +15,22 @@ const Instagram = ({ size = 24, color = 'currentColor' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
 );
 
+const socialIcons = [
+  { Icon: Facebook, name: 'Facebook', color: '#1877F2' },
+  { Icon: Twitter, name: 'Twitter', color: '#1DA1F2' },
+  { Icon: Linkedin, name: 'LinkedIn', color: '#0A66C2' },
+  { Icon: Instagram, name: 'Instagram', color: '#E1306C' },
+];
+
 export default function Footer() {
+  const [hoveredIcon, setHoveredIcon] = useState<number | null>(null);
+
   return (
     <footer style={{ background: '#0F172A', color: 'white', paddingTop: '80px', paddingBottom: '32px' }}>
       <div className="container">
         <div style={{ display: 'flex', gap: '48px', marginBottom: '64px', flexWrap: 'wrap' }}>
           {/* Brand Info */}
-          <div style={{ flex: '2', minWidth: '280px' }}>
+          <div style={{ flex: '2', minWidth: '280px' }} data-aos="fade-up" data-aos-delay="0" data-aos-duration="700">
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
               <div style={{ width: '36px', height: '36px', background: 'transparent', border: '2px solid rgba(255,255,255,0.5)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', fontSize: '11px', letterSpacing: '1px' }}>APX</div>
               <span style={{ fontSize: '20px', fontWeight: '800', color: 'white' }}>Apxcore digital</span>
@@ -29,16 +39,40 @@ export default function Footer() {
               Building tomorrow's software today with innovative solutions that drive real business results.
             </p>
             <div style={{ display: 'flex', gap: '16px' }}>
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <div key={i} style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                  <Icon size={16} color="white" />
-                </div>
-              ))}
+              {socialIcons.map(({ Icon, name, color }, i) => {
+                const isHovered = hoveredIcon === i;
+                return (
+                  <div
+                    key={name}
+                    onMouseEnter={() => setHoveredIcon(i)}
+                    onMouseLeave={() => setHoveredIcon(null)}
+                    aria-label={name}
+                    style={{
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      background: isHovered ? color : 'rgba(255, 255, 255, 0.1)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      transform: isHovered ? 'translateY(-4px) scale(1.1)' : 'translateY(0) scale(1)',
+                      boxShadow: isHovered ? `0 8px 16px -4px ${color}66` : 'none',
+                      transition: 'background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
+                    }}
+                    data-aos="zoom-in"
+                    data-aos-delay={150 + i * 80}
+                    data-aos-duration="500"
+                  >
+                    <Icon size={16} color="white" />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div style={{ flex: '1', minWidth: '150px' }}>
+          <div style={{ flex: '1', minWidth: '150px' }} data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
             <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '24px', letterSpacing: '1px' }}>Quick Links</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {[
@@ -57,7 +91,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div style={{ flex: '1.5', minWidth: '200px' }}>
+          <div style={{ flex: '1.5', minWidth: '200px' }} data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
             <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '24px', letterSpacing: '1px' }}>Contact</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
@@ -76,7 +110,7 @@ export default function Footer() {
           </div>
 
           {/* Subscribe */}
-          <div style={{ flex: '1.5', minWidth: '250px' }}>
+          <div style={{ flex: '1.5', minWidth: '250px' }} data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
             <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '24px', letterSpacing: '1px' }}>Subscribe</h4>
             <p style={{ color: '#9CA3AF', fontSize: '14px', marginBottom: '24px', lineHeight: '1.6' }}>
               Stay updated with our latest news and insights.
@@ -88,7 +122,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+        <div
+          style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="600"
+        >
           <p style={{ fontSize: '14px', color: '#9CA3AF' }}>© 2026 Apxcore digital. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '24px' }}>
             <a href="#" style={{ fontSize: '14px', color: '#9CA3AF', textDecoration: 'none' }}>Privacy Policy</a>
