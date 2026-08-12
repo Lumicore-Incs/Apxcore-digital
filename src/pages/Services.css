@@ -1,0 +1,31 @@
+.hero-section { padding-top: 128px; padding-bottom: 48px; }
+.hero-title { font-size: 60px; font-weight: 700; color: #005FAA; text-align: center; margin-bottom: 24px; line-height: 1; }
+.hero-subtitle { font-size: 20px; color: #4B5563; text-align: center; max-width: 768px; margin: 0 auto 48px; line-height: 1.6; }
+
+.section-title { font-size: 36px; font-weight: 700; color: #111827; }
+.service-detail-container { display: flex; align-items: center; gap: 64px; }
+.tech-stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 800px; margin: 0 auto; }
+.process-steps-container { display: flex; flex-direction: column; gap: 32px; max-width: 800px; margin: 0 auto; }
+.process-step { display: flex; gap: 24px; align-items: center; }
+.process-step-content { flex: 1; }
+
+.category-tabs { display: inline-flex; background: #F3F4F6; border-radius: 9999px; padding: 8px; gap: 4px; flex-wrap: wrap; justify-content: center; }
+
+@media (max-width: 1024px) {
+  .service-detail-container { gap: 32px; }
+  .hero-title { font-size: 48px; }
+}
+
+@media (max-width: 768px) {
+  .hero-section { padding-top: 100px; padding-bottom: 32px; }
+  .hero-title { font-size: 36px; }
+  .section-title { font-size: 28px; }
+  
+  .service-detail-container { flex-direction: column; }
+  .tech-stack-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .process-step { flex-direction: column; text-align: center; }
+  .process-step-img { margin-top: 16px; }
+  
+  .category-tabs { border-radius: 16px; padding: 12px; }
+}

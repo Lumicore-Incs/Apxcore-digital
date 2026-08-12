@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import './Services.css';
 
 const categories = ['Cloud', 'AI', 'Mobile', 'Cybersecurity'];
 
@@ -145,7 +146,7 @@ export default function Services() {
   return (
     <>
       {/* Hero Section */}
-      <section style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', paddingTop: '128px', paddingBottom: '48px', position: 'relative', overflow: 'hidden' }}>
+      <section className="hero-section" style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(106% 290% at 0.14% 0.38%, rgba(0,95,170,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <FadeUp>
@@ -156,10 +157,10 @@ export default function Services() {
             </nav>
 
             {/* Title */}
-            <h1 style={{ fontSize: '60px', fontWeight: '700', color: '#005FAA', textAlign: 'center', marginBottom: '24px', lineHeight: '1' }}>
+            <h1 className="hero-title">
               Our Services
             </h1>
-            <p style={{ fontSize: '20px', color: '#4B5563', textAlign: 'center', maxWidth: '768px', margin: '0 auto 48px', lineHeight: '1.6' }}>
+            <p className="hero-subtitle">
               Comprehensive software solutions designed to transform your business and drive digital innovation
             </p>
           </FadeUp>
@@ -167,7 +168,7 @@ export default function Services() {
           {/* Category Filter Tabs */}
           <FadeUp delay={0.15}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <div style={{ display: 'inline-flex', background: '#F3F4F6', borderRadius: '9999px', padding: '8px', gap: '4px' }}>
+              <div className="category-tabs">
                 {categories.map(cat => (
                   <button
                     key={cat}
@@ -196,7 +197,7 @@ export default function Services() {
       {/* Service Detail Section */}
       <section style={{ background: '#FFFFFF', padding: '64px 0' }}>
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '64px' }}>
+          <div className="service-detail-container">
             {/* Image */}
             <FadeLeft>
               <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)', aspectRatio: '4/3' }}>
@@ -261,7 +262,7 @@ export default function Services() {
               <p style={{ fontSize: '18px', color: '#4B5563' }}>Hover to learn more about each technology</p>
             </div>
           </FadeUp>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', maxWidth: '800px', margin: '0 auto' }}>
+          <div className="tech-stack-grid">
             {techStack.map((tech, idx) => (
               <ScaleIn key={idx} delay={idx * 0.08}>
                 <div
@@ -308,18 +309,18 @@ export default function Services() {
               <h2 style={{ fontSize: '36px', fontWeight: '700', color: '#111827' }}>How We Work</h2>
             </div>
           </FadeUp>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '800px', margin: '0 auto' }}>
+          <div className="process-steps-container">
             {processSteps.map((step, idx) => (
               <FadeUp key={step.num} delay={idx * 0.1}>
-                <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+                <div className="process-step">
                   <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#005FAA', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '700', fontSize: '18px', flexShrink: 0 }}>
                     {step.num}
                   </div>
-                  <div style={{ flex: 1 }}>
+                  <div className="process-step-content">
                     <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#111827', marginBottom: '8px' }}>{step.title}</h3>
                     <p style={{ fontSize: '16px', color: '#4B5563', lineHeight: '1.6' }}>{step.desc}</p>
                   </div>
-                  <div style={{ width: '80px', height: '80px', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                  <div className="process-step-img" style={{ width: '80px', height: '80px', borderRadius: '12px', overflow: 'hidden', flexShrink: 0, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
                     <img src={step.img} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                 </div>
