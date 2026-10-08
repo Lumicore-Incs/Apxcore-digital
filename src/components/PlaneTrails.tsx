@@ -24,8 +24,8 @@ export default function PlaneTrails() {
     const PLANE_WIDTH = 300;
     const PLANE_HEIGHT = 250;
 
-    let px = stage.clientWidth * 0.82;
-    let py = stage.clientHeight * 0.18;
+    let px = stage.clientWidth * 0.94;
+    let py = stage.clientHeight * 0.06;
     let tx = px, ty = py;
     let vx = 0, vy = 0;
     let rot = 0;
@@ -150,7 +150,7 @@ export default function PlaneTrails() {
   }, []);
 
   return (
-    <div ref={stageRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 40 }}>
+    <div ref={stageRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 60 }}>
       <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
       <svg ref={planeRef} id="plane" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'auto' }}>
         <g fill="#00BDFD">

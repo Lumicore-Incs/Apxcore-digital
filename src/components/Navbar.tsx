@@ -1,12 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, Sparkles, X } from 'lucide-react';
 import { FaFacebook, FaTiktok, FaYoutube, FaInstagram } from 'react-icons/fa';
 import { useState } from 'react';
+import HandMagic from './HandMagic';
 import './Navbar.css';
 
 export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isAIModeOpen, setIsAIModeOpen] = useState(false);
 
   const navLinks = [
     { label: 'Home', path: '/' },
@@ -26,11 +28,12 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
+    <>
     <nav className={`navbar ${isOpen ? 'mobile-open' : ''}`}>
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <div className="logo-box">A</div>
+          <img className="logo-box" src="/src/assets/Logo.png" alt="Apxcore digital Logo" />
           <span className="logo-text">Apxcore digital</span>
         </Link>
 
@@ -68,6 +71,15 @@ export default function Navbar() {
                 </a>
               );
             })}
+            <button
+              type="button"
+              className="social-link ai-mode-trigger"
+              aria-label="Open AI hand mode"
+              title="AI hand mode"
+              onClick={() => setIsAIModeOpen(true)}
+            >
+              <Sparkles size={19} />
+            </button>
           </div>
         </div>
 
@@ -131,9 +143,23 @@ export default function Navbar() {
                 </a>
               );
             })}
+            <button
+              type="button"
+              className="mobile-social-icon ai-mode-trigger"
+              aria-label="Open AI hand mode"
+              title="AI hand mode"
+              onClick={() => {
+                setIsOpen(false);
+                setIsAIModeOpen(true);
+              }}
+            >
+              <Sparkles size={18} />
+            </button>
           </div>
         </div>
       </div>
     </nav>
+    {isAIModeOpen && <HandMagic onClose={() => setIsAIModeOpen(false)} />}
+    </>
   );
 }

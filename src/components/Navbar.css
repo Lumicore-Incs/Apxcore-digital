@@ -28,7 +28,7 @@
 .navbar {
   position: fixed;
   top: 16px;
-  z-index: 50;
+  z-index: 70;
   padding: 0 16px;
   width: 100%;
   box-sizing: border-box;
@@ -101,7 +101,7 @@
 }
 
 .navbar-logo:hover .logo-box {
-  box-shadow: 0 10px 20px -5px rgba(96, 165, 250, 0.5);
+  box-shadow: 0 10px 20px -5px rgba(196, 65, 13, 0.5);
   transform: scale(1.05);
 }
 
@@ -160,19 +160,15 @@
 
 .nav-link:hover {
   color: white;
-  background-color: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
 }
 
 .nav-link.active {
-  background-color: rgba(59, 130, 246, 0.2);
   color: #60a5fa;
-  border: 1px solid rgba(96, 165, 250, 0.3);
   font-weight: 700;
 }
 
 .nav-link:focus {
-  outline: 2px solid #60a5fa;
   outline-offset: 2px;
 }
 
@@ -210,6 +206,20 @@
 .social-link:focus {
   outline: 2px solid #60a5fa;
   outline-offset: 2px;
+}
+
+.ai-mode-trigger {
+  flex: 0 0 auto;
+  border: 1px solid rgba(94, 255, 220, 0.2);
+  color: #8bf5dc;
+  background: rgba(0, 255, 200, 0.08);
+}
+
+.ai-mode-trigger:hover {
+  border-color: rgba(94, 255, 220, 0.55);
+  color: #c0fff1;
+  background: rgba(0, 255, 200, 0.16);
+  filter: drop-shadow(0 4px 8px rgba(0, 255, 200, 0.2));
 }
 
 /* ==================== MOBILE MENU BUTTON ==================== */
