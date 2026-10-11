@@ -236,14 +236,24 @@
     cursor: pointer;
 }
 
-.hero-card-button:hover,
-.hero-card-button:focus-visible,
-.hero-card-button.active {
+.hero-card-button:hover {
     transform: translateY(-2px);
     border-color: rgba(13, 110, 255, 0.42);
     background: rgba(255, 255, 255, 0.16);
     box-shadow: 0 18px 40px rgba(2, 31, 84, 0.12);
-    outline: none;
+}
+
+.hero-card-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+.hero-card-button.active {
+    color: #ffffff;
+    transform: translateY(-2px);
+    border-color: #8ac8ff;
+    background: #3877dc;
+    box-shadow: 0 0 0 4px rgba(56, 156, 255, 0.28), 0 18px 40px rgba(2, 31, 84, 0.24);
 }
 
 .hero-card-details {

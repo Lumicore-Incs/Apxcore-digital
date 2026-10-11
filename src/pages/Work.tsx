@@ -10,6 +10,7 @@ type Project = {
   category: string;
   sector: string;
   image: string;
+  gif?: string;
   summary: string;
   capabilities: string[];
   year: string;
@@ -280,7 +281,7 @@ export default function Work() {
         <div className="work-intro-grid" aria-hidden="true" />
         <div className="work-intro-content">
           <div className="work-eyebrow"><span /> APXCORE DIGITAL / SELECTED WORK</div>
-          <h1>Made to move<br /><em>business forward.</em></h1>
+          <h1 style={{ fontWeight: '500', color: '#111827' }}>Made to move<br /><em>business forward.</em></h1>
           <div className="work-intro-bottom">
             <p>Step inside a collection of digital products, platforms, and experiences built for what comes next.</p>
             <a className="work-enter-link" href="#project-hall">
@@ -325,7 +326,7 @@ export default function Work() {
                     <span className="work-frame-edge">
                       <span className="work-frame-mat">
                         <span className="work-frame-image-wrap">
-                          <img src={project.image} alt="" className="work-frame-image" draggable={false} />
+                          <img src={project.gif ?? project.image} alt="" className="work-frame-image" draggable={false} />
                           <span className="work-frame-open"><ArrowUpRight size={18} /></span>
                         </span>
                         <span className="work-frame-caption">
@@ -387,7 +388,7 @@ export default function Work() {
             key={activeProject.number}
           >
             <div className="work-modal-media">
-              <img src={activeProject.image} alt={`${activeProject.category} project`} />
+              <img src={activeProject.gif ?? activeProject.image} alt={`${activeProject.category} project`} />
               <div className="work-modal-media-shade" />
               <span className="work-modal-number">Project {activeProject.number}</span>
               <span className="work-modal-category">{activeProject.category}</span>

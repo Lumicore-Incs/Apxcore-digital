@@ -100,7 +100,7 @@ export default function Footer() {
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Phone size={18} color="var(--primary)" />
-                <span style={{ color: '#9CA3AF', fontSize: '14px' }}>+94 767354673</span>
+                <span style={{ color: '#9CA3AF', fontSize: '14px' }}>+94 782862763</span>
               </li>
               <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Mail size={18} color="var(--primary)" />

@@ -23,7 +23,7 @@
   align-items: flex-end;
   overflow: hidden;
   padding: 150px max(7vw, 28px) 86px;
-  background: #101716;
+  background: #a9dadef0;
   isolation: isolate;
 }
 
@@ -622,7 +622,7 @@
   justify-content: space-between;
   gap: 30px;
   padding: 100px max(7vw, 28px);
-  background: #d5ff71;
+  background: rgb(210, 228, 233);
   color: #142019;
 }
 

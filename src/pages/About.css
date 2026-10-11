@@ -15,6 +15,64 @@
 .timeline-empty { flex: 1; }
 .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; transform: translateX(-50%); background: linear-gradient(180deg, #005FAA 0%, #14B8A6 50%, #005FAA 100%); border-radius: 2px; opacity: 0.35; }
 
+.client-map {
+  position: relative;
+  padding: 48px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.client-map-image { display: block; width: 100%; height: auto; opacity: 0.85; }
+.client-map-points { position: absolute; inset: 48px; }
+.client-map-point {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+  color: #e5e5e5;
+  text-align: left;
+  background: rgba(26, 26, 26, 0.88);
+  border: 5px solid #7fcff7;
+  border-radius: 50%;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  transition: width 250ms ease, height 250ms ease, opacity 250ms ease, border-radius 250ms ease;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+.client-map-point:hover { opacity: 1; }
+.client-map-point:focus-visible { outline: 3px solid #005faa; outline-offset: 4px; }
+.client-map-point:focus {
+  z-index: 2;
+  width: min(300px, calc(100vw - 64px));
+  height: 220px;
+  border-radius: 10px;
+  opacity: 1;
+  animation: none;
+}
+.client-map-content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-50%);
+  transition: opacity 250ms ease 200ms;
+  pointer-events: none;
+}
+.client-map-point:focus .client-map-content { opacity: 1; }
+.client-map-title { color: #fff; font-size: 22px; font-weight: 700; text-transform: uppercase; }
+.client-map-detail { color: rgba(229, 229, 229, 0.8); font-size: 14px; line-height: 1.6; }
+
 @media (max-width: 1024px) {
   .stats-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
@@ -37,4 +95,13 @@
   .timeline-line { left: 12px; }
   .milestone-dot { left: 12px !important; transform: translateX(-50%) !important; }
   .milestone-card { text-align: left !important; }
+
+  .client-map { padding: 24px; }
+  .client-map-points { inset: 24px; }
+  .client-map-point:focus {
+    top: 50% !important;
+    left: 50% !important;
+    width: min(300px, calc(100vw - 80px));
+    height: 200px;
+  }
 }

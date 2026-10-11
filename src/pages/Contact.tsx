@@ -106,7 +106,7 @@ export default function Contact() {
                 cardBg: 'linear-gradient(135deg, #ECFEFF 0%, #EFF6FF 100%)',
                 border: 'rgba(0,168,232,0.2)',
                 title: 'Call Us',
-                detail: '+94 767354673',
+                detail: '+94 782862763',
               },
               {
                 icon: <MapPin size={28} color="#00D4AA" />,
@@ -336,7 +336,7 @@ export default function Contact() {
           <FadeLeft>
             <div className="map-container" style={{ background: 'white', borderRadius: '24px', border: '1px solid #E5E7EB', overflow: 'hidden', position: 'relative', height: '400px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
               <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-122.1000%2C37.3700%2C-122.0500%2C37.4000&layer=mapnik&marker=37.3861%2C-122.0839"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.656865052891!2d80.21207747581545!3d6.041731728572631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae173001929b885%3A0xad833c7f53bf393d!2sADIT%20PVT%20LTD!5e0!3m2!1sen!2slk!4v1791740501428!5m2!1sen!2slk"
                 width="100%" height="100%" style={{ border: 0, display: 'block' }}
                 allowFullScreen loading="lazy"
                 title="Office Location"

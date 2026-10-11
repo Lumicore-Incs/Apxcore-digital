@@ -11,23 +11,26 @@ function Counter({ end, duration = 1500 }: { end: string | number; duration?: nu
     if (!node) return;
 
     let observer: IntersectionObserver | null = null;
-    let started = false;
+    let animationFrame: number | null = null;
 
     const start = () => {
-      if (started) return;
-      started = true;
+      if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+      setValue(0);
       const numeric = parseInt(String(end).replace(/[^0-9]/g, ''), 10) || 0;
       const startTime = performance.now();
 
       const step = (now: number) => {
         const t = Math.min((now - startTime) / duration, 1);
         const eased = 1 - Math.pow(1 - t, 3);
-        const current = Math.round(numeric * eased);
-        setValue(current);
-        if (t < 1) requestAnimationFrame(step);
+        setValue(Math.round(numeric * eased));
+        if (t < 1) {
+          animationFrame = requestAnimationFrame(step);
+        } else {
+          animationFrame = null;
+        }
       };
 
-      requestAnimationFrame(step);
+      animationFrame = requestAnimationFrame(step);
     };
 
     observer = new IntersectionObserver(
@@ -35,7 +38,9 @@ function Counter({ end, duration = 1500 }: { end: string | number; duration?: nu
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             start();
-            if (observer) observer.disconnect();
+          } else if (animationFrame !== null) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
           }
         });
       },
@@ -43,13 +48,12 @@ function Counter({ end, duration = 1500 }: { end: string | number; duration?: nu
     );
 
     observer.observe(node);
-
     return () => {
       if (observer) observer.disconnect();
+      if (animationFrame !== null) cancelAnimationFrame(animationFrame);
     };
   }, [end, duration]);
 
-  // Keep suffix (e.g., '+') if provided in the original string
   const suffixMatch = String(end).match(/\D+$/);
   const suffix = suffixMatch ? suffixMatch[0] : '';
 
@@ -117,7 +121,7 @@ export default function Home() {
                   </div>
                   <div className="hero-contact__text">
                     <span>Call us anytime</span>
-                    <strong>+94 767 354 673</strong>
+                    <strong>+94 782862763</strong>
                   </div>
                 </div>
               </div>
@@ -146,6 +150,8 @@ export default function Home() {
                   type="button"
                   className={`hero-card-button ${activeCard === idx ? 'active' : ''}`}
                   onClick={() => setActiveCard(idx)}
+                  aria-label={card.title}
+                  aria-pressed={activeCard === idx}
                 >
                   {card.icon}
                 </button>

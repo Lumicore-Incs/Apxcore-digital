@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { Check, ChevronRight } from 'lucide-react';
+import {
+  Check, ChevronRight, Layout, Server, Database, Webhook,
+  GitBranch, Cloud, Wrench, Rocket, Layers,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 import './Services.css';
 
@@ -90,9 +94,127 @@ const services: Record<string, {
   },
 };
 
-const techStack = [
-  { name: 'AWS' }, { name: 'Azure' }, { name: 'Google Cloud' },
-  { name: 'Docker' }, { name: 'Kubernetes' }, { name: 'Terraform' },
+/* ── Technology Stack data ────────────────────────── */
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons';
+const dv = (name: string, variant = 'original') => `${DEVICON}/${name}/${name}-${variant}.svg`;
+
+type Tech = { name: string; icon?: string; fallback?: LucideIcon };
+
+type TechCategory = {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: LucideIcon;
+  from: string;
+  to: string;
+  items: Tech[];
+};
+
+const techCategories: TechCategory[] = [
+  {
+    id: 'frontend',
+    title: 'Frontend Development',
+    subtitle: 'Fast, responsive & beautiful user interfaces',
+    icon: Layout,
+    from: '#005FAA',
+    to: '#00A8CC',
+    items: [
+      { name: 'React.js', icon: dv('react') },
+      { name: 'JavaScript', icon: dv('javascript') },
+      { name: 'TypeScript', icon: dv('typescript') },
+      { name: 'HTML5', icon: dv('html5') },
+      { name: 'CSS3', icon: dv('css3') },
+      { name: 'Tailwind CSS', icon: dv('tailwindcss') },
+      { name: 'Bootstrap', icon: dv('bootstrap') },
+      { name: 'Vite', icon: dv('vitejs') },
+    ],
+  },
+  {
+    id: 'backend',
+    title: 'Backend Development',
+    subtitle: 'Robust, secure & scalable server-side systems',
+    icon: Server,
+    from: '#16A34A',
+    to: '#65A30D',
+    items: [
+      { name: 'Java', icon: dv('java') },
+      { name: 'Spring Boot', icon: dv('spring') },
+      { name: 'Spring MVC', icon: dv('spring') },
+      { name: 'Spring Security', icon: dv('spring') },
+      { name: 'Hibernate', icon: dv('hibernate') },
+      { name: 'JPA', icon: dv('hibernate'), fallback: Layers },
+      { name: 'Node.js', icon: dv('nodejs') },
+      { name: 'Express.js', icon: dv('express') },
+    ],
+  },
+  {
+    id: 'databases',
+    title: 'Databases',
+    subtitle: 'Reliable data storage for every workload',
+    icon: Database,
+    from: '#7C3AED',
+    to: '#C026D3',
+    items: [
+      { name: 'MySQL', icon: dv('mysql') },
+      { name: 'PostgreSQL', icon: dv('postgresql') },
+      { name: 'MongoDB', icon: dv('mongodb') },
+      { name: 'Oracle Database', icon: dv('oracle') },
+    ],
+  },
+  {
+    id: 'api',
+    title: 'API Development & Testing',
+    subtitle: 'Well-designed, documented & thoroughly tested APIs',
+    icon: Webhook,
+    from: '#EA580C',
+    to: '#F59E0B',
+    items: [
+      { name: 'REST API', fallback: Webhook },
+      { name: 'Postman', icon: dv('postman') },
+      { name: 'Swagger / OpenAPI', icon: dv('swagger') },
+    ],
+  },
+  {
+    id: 'vcs',
+    title: 'Version Control',
+    subtitle: 'Collaborative, traceable code management',
+    icon: GitBranch,
+    from: '#DC2626',
+    to: '#F43F5E',
+    items: [
+      { name: 'Git', icon: dv('git') },
+      { name: 'GitHub', icon: dv('github') },
+    ],
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud Platforms',
+    subtitle: 'Cloud hosting and infrastructure',
+    icon: Cloud,
+    from: '#0284C7',
+    to: '#6366F1',
+    items: [
+      { name: 'AWS', icon: dv('amazonwebservices', 'plain-wordmark') },
+      { name: 'Microsoft Azure', icon: dv('azure') },
+      { name: 'Google Cloud', icon: dv('googlecloud') },
+    ],
+  },
+  {
+    id: 'tools',
+    title: 'Development Tools',
+    subtitle: 'IDEs and development productivity',
+    icon: Wrench,
+    from: '#0F766E',
+    to: '#14B8A6',
+    items: [
+      { name: 'IntelliJ IDEA', icon: dv('intellij') },
+      { name: 'Antigravity', fallback: Rocket },
+      { name: 'VS Code', icon: dv('vscode') },
+      { name: 'Spring Tool Suite', icon: dv('spring') },
+      { name: 'Maven', icon: dv('maven') },
+      { name: 'npm', icon: dv('npm', 'original-wordmark') },
+    ],
+  },
 ];
 
 const processSteps = [
@@ -101,6 +223,28 @@ const processSteps = [
   { num: 3, title: 'Development & Testing', desc: 'We build your solution using agile methodologies with continuous testing to ensure quality and reliability.', img: '/images/07cd21bb70577c5d7c5be10011baf3de451f2254.jpg' },
   { num: 4, title: 'Deployment & Support', desc: 'We deploy your solution seamlessly and provide ongoing support to ensure optimal performance and user satisfaction.', img: '/images/18f7c427d268f0b9cb3a9ff32b15652036271b2d.jpg' },
 ];
+
+/* ── Tech icon with graceful fallback ─────────────── */
+function TechIcon({ tech, color }: { tech: Tech; color: string }) {
+  const [failed, setFailed] = useState(false);
+  const Fallback = tech.fallback;
+
+  if (tech.icon && !failed) {
+    return (
+      <img
+        src={tech.icon}
+        alt={tech.name}
+        loading="lazy"
+        width={26}
+        height={26}
+        onError={() => setFailed(true)}
+        style={{ width: 26, height: 26, objectFit: 'contain' }}
+      />
+    );
+  }
+  if (Fallback) return <Fallback size={22} color={color} strokeWidth={2} />;
+  return <span style={{ fontWeight: 700, fontSize: 14, color }}>{tech.name.charAt(0)}</span>;
+}
 
 /* ── Animation wrappers ───────────────────────────── */
 function FadeUp({ children, delay = 0, style = {} }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties }) {
@@ -139,12 +283,158 @@ function ScaleIn({ children, delay = 0, style = {} }: { children: React.ReactNod
   );
 }
 
+/* ── Styles for the tech stack section ────────────── */
+const techStackCSS = `
+.ts-section {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0;
+  background:
+    radial-gradient(60% 50% at 10% 0%, rgba(0,95,170,0.07) 0%, transparent 70%),
+    radial-gradient(50% 50% at 100% 100%, rgba(0,168,204,0.08) 0%, transparent 70%),
+    #F9FAFB;
+}
+.ts-eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(0,95,170,0.08);
+  color: #005FAA;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.ts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+.ts-card {
+  position: relative;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid #E5E7EB;
+  border-radius: 24px;
+  padding: 28px;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+.ts-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--from), var(--to));
+  opacity: 0.9;
+}
+.ts-card::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--from) 0%, transparent 70%);
+  opacity: 0.06;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.ts-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent;
+  box-shadow: 0 24px 48px -12px rgba(15,23,42,0.18);
+}
+.ts-card:hover::after { opacity: 0.14; }
+.ts-card-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.ts-card-icon {
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--from), var(--to));
+  box-shadow: 0 8px 20px -6px var(--from);
+  flex-shrink: 0;
+}
+.ts-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+.ts-card-sub {
+  font-size: 13.5px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.5;
+}
+.ts-count {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--from);
+  background: color-mix(in srgb, var(--from) 10%, white);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+.ts-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ts-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 9999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1F2937;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+.ts-chip-icon {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: #F3F4F6;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+.ts-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--from);
+  box-shadow: 0 8px 18px -8px var(--from);
+  color: var(--from);
+}
+.ts-chip:hover .ts-chip-icon { background: color-mix(in srgb, var(--from) 12%, white); }
+@media (max-width: 480px) {
+  .ts-grid { grid-template-columns: 1fr; }
+  .ts-card { padding: 22px; }
+  .ts-count { display: none; }
+}
+`;
+
 export default function Services() {
   const [activeTab, setActiveTab] = useState('Cloud');
   const svc = services[activeTab];
 
   return (
     <>
+      <style>{techStackCSS}</style>
+
       {/* Hero Section */}
       <section className="hero-section" style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #ECFEFF 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(106% 290% at 0.14% 0.38%, rgba(0,95,170,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
@@ -254,48 +544,52 @@ export default function Services() {
       </section>
 
       {/* Technology Stack */}
-      <section style={{ background: '#F9FAFB', padding: '80px 0' }}>
+      <section className="ts-section">
         <div className="container">
           <FadeUp>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+              <span className="ts-eyebrow">Our Toolbox</span>
               <h2 style={{ fontSize: '36px', fontWeight: '700', color: '#111827', marginBottom: '12px' }}>Technology Stack</h2>
-              <p style={{ fontSize: '18px', color: '#4B5563' }}>Hover to learn more about each technology</p>
+              <p style={{ fontSize: '18px', color: '#4B5563', maxWidth: '640px', margin: '0 auto', lineHeight: 1.6 }}>
+                Modern, battle-tested technologies we use to design, build and ship reliable software.
+              </p>
             </div>
           </FadeUp>
-          <div className="tech-stack-grid">
-            {techStack.map((tech, idx) => (
-              <ScaleIn key={idx} delay={idx * 0.08}>
-                <div
-                  style={{
-                    background: 'white',
-                    border: '1px solid #E5E7EB',
-                    borderRadius: '12px',
-                    padding: '32px 16px',
-                    textAlign: 'center',
-                    fontWeight: '700',
-                    fontSize: '18px',
-                    color: '#111827',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
-                  }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLDivElement).style.background = '#005FAA';
-                    (e.currentTarget as HTMLDivElement).style.color = 'white';
-                    (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)';
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 12px 24px rgba(0,95,170,0.2)';
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLDivElement).style.background = 'white';
-                    (e.currentTarget as HTMLDivElement).style.color = '#111827';
-                    (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)';
-                  }}
-                >
-                  {tech.name}
-                </div>
-              </ScaleIn>
-            ))}
+
+          <div className="ts-grid">
+            {techCategories.map((cat, idx) => {
+              const CatIcon = cat.icon;
+              return (
+                <ScaleIn key={cat.id} delay={idx * 0.07} style={{ height: '100%' }}>
+                  <div
+                    className="ts-card"
+                    style={{ ['--from' as string]: cat.from, ['--to' as string]: cat.to } as React.CSSProperties}
+                  >
+                    <div className="ts-card-head">
+                      <div className="ts-card-icon">
+                        <CatIcon size={24} color="white" strokeWidth={2} />
+                      </div>
+                      <div>
+                        <h3 className="ts-card-title">{cat.title}</h3>
+                        <p className="ts-card-sub">{cat.subtitle}</p>
+                      </div>
+                      <span className="ts-count">{cat.items.length}</span>
+                    </div>
+
+                    <div className="ts-chips">
+                      {cat.items.map(tech => (
+                        <div key={tech.name} className="ts-chip">
+                          <span className="ts-chip-icon">
+                            <TechIcon tech={tech} color={cat.from} />
+                          </span>
+                          {tech.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </ScaleIn>
+              );
+            })}
           </div>
         </div>
       </section>
